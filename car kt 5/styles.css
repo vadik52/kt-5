@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #0069be; /* Небо */
+}
+
+.road {
+    position: absolute;
+    bottom: 30px; /* Высота дороги */
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #555; /* Цвет дороги */
+    border-top: 5px solid #fff; /* Разметка дороги */
+}
+
+.car {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    background-color: #4b0000; /* Цвет машинки */
+    border-radius: 10px; /* Закругленные углы */
+    bottom: 60px; /* Поднимаем машинку над дорогой */
+    animation: drive 4s forwards; /* Анимация выезда */
+}
+
+.car::before, .car::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #000; /* Цвет колес */
+    border-radius: 50%; /* Круглые колеса */
+}
+
+.car::before {
+    bottom: -25px; 
+    left: 20px; /* Расположение переднего колеса */
+}
+
+.car::after {
+    bottom: -25px;
+    right: 20px; /* Расположение заднего колеса */
+}
+
+@keyframes drive {
+    0% {
+        transform: translateX(-200px); /* Начальная позиция */
+    }
+    100% {
+        transform: translateX(calc(100vw - 250px)); /* Конечная позиция (за 50px до конца) */
+    }
+}
